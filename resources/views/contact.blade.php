@@ -4,6 +4,15 @@
     <section>
         <div class="row justify-content-center">
             <div class="col-md-6">
+                @if ($errors->any())
+                    <div class="alert alert-danger mt-5">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="card mt-5 mb-5">
                     <div class="card-body">
                         <form  method="POST" action="{{  route('contact.submit')  }}"> 
@@ -18,11 +27,11 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="">Subject</label>
-                                <input class="form-control" id="" type="text" name="">
+                                <input class="form-control" id="" type="text" name="subject">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="">Message</label>
-                                <textarea name=""  class="form-control" name="message"></textarea>
+                                <textarea   class="form-control" name="message"></textarea>
                             </div>
                             <button class="btn btn-primary" type="submit">Submit</button>
                         </form>
