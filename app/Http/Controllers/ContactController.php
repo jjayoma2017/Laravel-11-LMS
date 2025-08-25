@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ContactStoreRequest;
 
 class ContactController extends Controller
 {
@@ -10,13 +11,8 @@ class ContactController extends Controller
         return view('contact');
     }
 
-    function contactSubmit(Request $request){
-        $request->validate([
-            'name'=>'required|max:20|min:2',
-            'email'=>'required|email',
-            'subject'=>'required',
-            'message'=>'required'
-        ]);
+    function contactSubmit(ContactStoreRequest $request){
+       
     }
        
 }
